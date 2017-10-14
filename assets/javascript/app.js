@@ -3,7 +3,7 @@ $(document).ready(function () {
     var dateArray = [];
     var localeArray = [];
     var authKey = "c6Pfj5qgjtkvDTOAzxWf1bDTtr80wGVA";
-    var searchKeyword = "Panthers"
+    var searchKeyword = "rock"
     var searchCity = "charlotte"
     var queryURLBase = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + searchKeyword + "&city=" + searchCity + "&raduis=20&unit=miles&apikey=" +
         authKey;
@@ -21,8 +21,10 @@ $(document).ready(function () {
             var eventList = results._embedded.events[i];
             var eventName = eventList.name;
             var eventDate = eventList.dates.start.localDate;
+
             nameArray.push(results._embedded.events[i]);
             dateArray.push(eventDate);
+            localeArray.push();
             console.log(eventName);
             console.log(eventDate);
 
@@ -36,6 +38,8 @@ $(document).ready(function () {
         console.log(dateArray[1]);
         console.log(dateArray[2]);
         console.log(dateArray[3]);
+
+
     });
 
 
