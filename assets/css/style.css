@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+}
+
+.display-3 {
+    text-align: center;
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    background-color: black;
+}
+
+.lead {
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+.jumbotron {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-image: url(../images/messyroom2.jpg);
+    background-size: 100% 100%;
+    margin-bottom: 0px;
+}
+
+.my-4 {
+    background-color: white;
+}
+
+.search-par {
+    width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: none;
+}
+
+
+
+.form-group {
+    text-align: center;
+}
+
+label {
+    color: white;
+}
+
+.btn-primary {
+    background-color: #bc2220;
+    border-color: #bc2220;
+}
+
+.btn-primary:hover{
+    background-color: #5f1312;
+    border-color: #5f1312;
+}
+
+.card {
+    margin-top: 5%;
+    background-color: #bc2220;
+}
+
+.table {
+   margin-top: 5%;
+    margin-bottom: 5%; 
+}
+
+#info {
+    background-color: white;
+    height: 20%;
+    text-align: center;
+    border-color: black;
+    border-style: ridge;
+    border-width: 5px;
+}
+
+
+
+
+
+
