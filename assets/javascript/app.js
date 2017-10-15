@@ -17,13 +17,15 @@ $(document).ready(function () {
     var cityArray = [];
     var stateArray = [];
 
-    $("#infoSubmit").on("click", function () {
+    $("#infoSubmit").on("click", function (event) {
+        event.preventDefault();
 
-
-        var searchKeyword = $("#exampleInputEmail1").val().trim();
-        var searchCity = $("#exampleInputPassword1").val().trim();
+        var searchKeyword = $("#exampleInputEmail1").val();
+        console.log(searchKeyword);
+        var searchCity = $("#exampleInputPassword1").val();
+        console.log(searchCity);
         var authKey = "c6Pfj5qgjtkvDTOAzxWf1bDTtr80wGVA";
-        var queryURLBase = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + searchKeyword + "&city=" + searchCity + "&raduis=20&unit=miles&apikey=" +
+        var queryURLBase = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + searchKeyword + "&city=" + searchCity + "&raduis=20&unit=miles&size=8&apikey=" +
             authKey;
 
 
@@ -62,32 +64,31 @@ $(document).ready(function () {
         });
         database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-            console.log(childSnapshot.val().name);
-
-            // Store everything into a variable.
-            var searchName = childSnapshot.val().name;
-            var searchDate = childSnapshot.val().date;
-            var searchVenue = childSnapshot.val().venue;
-            var searchCity = childSnapshot.val().city;
-            var searchState = childSnapshot.val().state;
-
-
-
+            for (let i = 0; i < nameArray.length; i++) {
+                console.log(childSnapshot.val().name[i]);
+                var searchName = childSnapshot.val().name[i];
+                var searchDate = childSnapshot.val().date[i];
+                var searchVenue = childSnapshot.val().venue[i];
+                var searchCity = childSnapshot.val().city[i];
+                var searchState = childSnapshot.val().state[i];
+                $("#cards").append(
+                    "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;'>" +
+                    "<div class='card-block'>" +
+                    "<h2 class='card-title'>" + searchName + "</h2>" + "<hr>" +
+                    "<h3 class='card-text'>" + searchVenue + "</h3>" + "</br>" +
+                    "<h4 class='card-text'>" + searchCity + "</h4>, " +
+                    "<p class='card-text'>" + searchState + "</p>" + "</br>" +
+                    "<p class='card-text'><strong>" + searchDate + "</strong></p>" + "</br>" +
+                    "<button class='btn btn-primary text-center' style='text-align: center'> Save </button>" +
+                    "</div>" +
+                    "</div>"
+                );
+            };
             // Add each train's data into the table
-            $("#cards").append(
-                "<div class='card' style='width: 20rem;'>" +
-                "<div class='card-block'>" +
-                "<h4 class='card-title'>" + searchName + "</h4>" + "<hr>" +
-                "<p class='card-text'>" + searchDate + "</p>" + "</br>" +
-                "<p class='card-text'>" + searchVenue + "</p>" + "</br>" +
-                "<p class='card-text'>" + searchCity + "</p>" + "</br>" +
-                "<p class='card-text'>" + searchState + "</p>" + "</br>" +
-                "<a href='#' class='btn btn-primary'> Save </a>" +
-                "</div>" +
-                "</div>"
-            );
+
 
         });
+
     });
 
 });

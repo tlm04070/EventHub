@@ -28,21 +28,20 @@
   </div>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bc2220;">
-    <a class="navbar-brand" href="index.html">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index2.html">Calendar Page
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+  <nav class="navbar navbar-inverse" style="background-color: #bc2220;">
+    <form class="container-fluid">
+      <div id="band-info" class="form-group" style="display: inline-block">
+        <label for="exampleInputEmail1">What do you want to see?</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex; football, rock, hockey, concert">
+      </div>
+      <div id="locate" class="form-group" style="display: inline-block">
+        <label for="exampleInputPassword1">Where do you want to see it?</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ex; Charlotte, New York, ">
+      </div>
+      <button id="infoSubmit" class="btn btn-sm active" style="background-color: #bc2220; border-color: #bc2220; color: #ffffff"
+        role="button" aria-pressed="true">Submit
+      </button>
+    </form>
   </nav>
 
 
@@ -64,7 +63,7 @@
       <tr>
         <td>Mark</td>
         <td>Otto</td>
-        <td>@mdo</td>\
+        <td>@mdo</td>
         <td>jehf</td>
       </tr>
       <tr>
