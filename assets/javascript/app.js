@@ -83,11 +83,11 @@ $(document).ready(function () {
                 $("#cards").append(
                     "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='number" + i + "'>" +
                     "<div class='card-block'>" +
-                    "<h2 class='card-title'>" + searchName + "</h2>" + "<hr>" +
-                    "<h3 class='card-text'>" + searchVenue + "</h3>" + "</br>" +
-                    "<h4 class='card-text'>" + searchCity + "</h4>, " +
-                    "<p class='card-text'>" + searchState + "</p>" + "</br>" +
-                    "<p class='card-text'><strong>" + searchDate + "</strong></p>" + "</br>" +
+                    "<h2 class='card-title' id='searchName'>" + searchName + "</h2>" + "<hr>" +
+                    "<h3 class='card-text' id='searchVenue'>" + searchVenue + "</h3>" + "</br>" +
+                    "<h4 class='card-text' id='searchCity'>" + searchCity + "</h4>, " +
+                    "<p class='card-text' id='searchState'>" + searchState + "</p>" + "</br>" +
+                    "<p class='card-text' id='searchDate'>" + searchDate + "</p>" + "</br>" +
                     "<button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button>" +
                     "</div>" +
                     "</div>"
@@ -98,6 +98,33 @@ $(document).ready(function () {
             };
             $("#cards button").on("click", function () {
                 $(this.parentElement.parentElement).hide("slow");
+                var resultName = $(this).siblings("#searchName").html();
+                var resultVenue = $(this).siblings("#searchVenue").html();
+                var resultCity = $(this).siblings("#searchCity").html();
+                var resultState = $(this).siblings("#searchState").html();
+                var resultDate = $(this).siblings("#searchDate").html();
+
+                console.log(resultName);
+                console.log(resultVenue);
+                console.log(resultCity);
+                console.log(resultState);
+                console.log(resultDate);
+                // var trainName = childSnapshot.val().name;
+                // var trainDest = childSnapshot.val().destination;
+                // var trainStart = childSnapshot.val().start;
+                // var trainFreq = childSnapshot.val().frequency;
+                // var trainArrival = childSnapshot.val().arrival;
+                // var trainAway = childSnapshot.val().away;
+
+
+                // // Add each train's data into the table
+                // $("#train-table > tbody").append(
+                //     "<tr><td>" + trainName +
+                //     "</td><td>" + trainDest +
+                //     "</td><td>" + trainFreq + " mins" +
+                //     "</td><td>" + trainArrival +
+                //     "</td><td>" + trainAway + " mins" +
+                //     "</td></tr>");
             });
         });
     });
