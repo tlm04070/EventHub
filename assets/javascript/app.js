@@ -17,8 +17,15 @@ $(document).ready(function () {
     var cityArray = [];
     var stateArray = [];
 
+    const fresh = function fresh() {
+        database.ref().child("Search").remove;
+    }
+
     $("#infoSubmit").on("click", function (event) {
         event.preventDefault();
+        fresh();
+        console.log(fresh());
+
 
         var searchKeyword = $("#exampleInputEmail1").val();
         console.log(searchKeyword);
@@ -34,6 +41,7 @@ $(document).ready(function () {
             method: "GET"
         }).done(function (response) {
             console.log(response);
+
             var results = response;
 
             for (var i = 0; i < results._embedded.events.length; i++) {
@@ -61,6 +69,7 @@ $(document).ready(function () {
 
             });
 
+
         });
         database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
@@ -72,23 +81,25 @@ $(document).ready(function () {
                 var searchCity = childSnapshot.val().city[i];
                 var searchState = childSnapshot.val().state[i];
                 $("#cards").append(
-                    "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;'>" +
+                    "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='number" + i + "'>" +
                     "<div class='card-block'>" +
                     "<h2 class='card-title'>" + searchName + "</h2>" + "<hr>" +
                     "<h3 class='card-text'>" + searchVenue + "</h3>" + "</br>" +
                     "<h4 class='card-text'>" + searchCity + "</h4>, " +
                     "<p class='card-text'>" + searchState + "</p>" + "</br>" +
                     "<p class='card-text'><strong>" + searchDate + "</strong></p>" + "</br>" +
-                    "<button class='btn btn-primary text-center' style='text-align: center'> Save </button>" +
+                    "<button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button>" +
                     "</div>" +
                     "</div>"
                 );
+
+                // Add each train's data into the table
+
             };
-            // Add each train's data into the table
-
-
+            $("#cards button").on("click", function () {
+                $(this.parentElement.parentElement).hide("slow");
+            });
         });
-
     });
 
 });
