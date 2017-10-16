@@ -9,23 +9,16 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     
-    
-    
-    
-    
 </head>
 <body> 
  
-    
-
-
     
     
     
  <div class="container" style="width:20%">   
     <div class="card text-center">
      <h5>Login</h5> 
-        <form>
+<form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -38,13 +31,23 @@
 </form>
     </div>   
 </div>   
-    
-    
-    
-    
-    
-    
-    
+
+<button class="btn btn-primary" onclick="signIn();" ><i class="fa fa-google-plus"></i>Google Signin</button>
+    <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyASdrxxXBuHkCx5SzEO0dknqCDvAc_mra0",
+      authDomain: "concert-search-app.firebaseapp.com",
+      databaseURL: "https://concert-search-app.firebaseio.com",
+      projectId: "concert-search-app",
+      storageBucket: "concert-search-app.appspot.com",
+      messagingSenderId: "836632121398"
+  };
+    firebase.initializeApp(config);
+  </script>
+  <script src ="https://apis.google.com/js/platform.js" async defer></script>  
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
