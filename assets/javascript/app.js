@@ -87,68 +87,72 @@ $("#infoSubmit").on("click", function (event) {
 
 
     });
-    database.ref().on("child_added", function (childSnapshot) {
 
-        for (let i = 0; i < 8; i++) {
-            console.log(childSnapshot.val().name[i]);
-            var searchName = childSnapshot.val().name[i];
-            var searchDate = childSnapshot.val().date[i];
-            var searchVenue = childSnapshot.val().venue[i];
-            var searchCity = childSnapshot.val().city[i];
-            var searchState = childSnapshot.val().state[i];
-            var searchTickets = childSnapshot.val().tickets[i];
-            console.log(searchTickets);
-            $("#cards").append(
-                "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='number" + i + "'>" +
-                "<div class='card-block'>" +
-                "<h2 class='card-title' id='searchName'>" + searchName + "</h2>" + "<hr>" +
-                "<h3 class='card-text' id='searchVenue'>" + searchVenue + "</h3>" + "</br>" +
-                "<h4 class='card-text' id='searchCity'>" + searchCity + "</h4>, " +
-                "<p class='card-text' id='searchState'>" + searchState + "</p>" + "</br>" +
-                "<p class='card-text' id='searchDate'>" + searchDate + "</p>" + "</br>" +
-                "<button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button>" +
-                "<a href= '" + searchTickets + "' id='ticketBtn'><button class='btn btn-secondary text-center' style='text-align: center'></button></a>" +
-                "</div>" +
-                "</div>"
-            );
+});
+database.ref().on("child_added", function (childSnapshot) {
+    counter = 0;
+    for (let i = counter; i < 8; i++) {
+        console.log(childSnapshot.val().name[i]);
+        var searchName = childSnapshot.val().name[i];
+        var searchDate = childSnapshot.val().date[i];
+        var searchVenue = childSnapshot.val().venue[i];
+        var searchCity = childSnapshot.val().city[i];
+        var searchState = childSnapshot.val().state[i];
+        var searchTickets = childSnapshot.val().tickets[i];
+        console.log(searchTickets);
 
-            // Add each train's data into the table
+        $("#cards").append(
+            "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='number" + i + "'>" +
+            "<div class='card-block'>" +
+            "<h2 class='card-title' id='searchName'>" + searchName + "</h2>" + "<hr>" +
+            "<h3 class='card-text' id='searchVenue'>" + searchVenue + "</h3>" + "</br>" +
+            "<h4 class='card-text' id='searchCity'>" + searchCity + "</h4>, " +
+            "<p class='card-text' id='searchState'>" + searchState + "</p>" + "</br>" +
+            "<p class='card-text' id='searchDate'>" + searchDate + "</p>" + "</br>" +
+            "<button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button>" +
+            "<a href= '" + searchTickets + "' id='ticketBtn'><button class='btn btn-secondary text-center' style='text-align: center'></button></a>" +
+            "</div>" +
+            "</div>"
+        );
 
-        };
-        $("#cards button").on("click", function () {
-            $(this.parentElement.parentElement).hide("slow");
-            var resultName = $(this).siblings("#searchName").html();
-            var resultVenue = $(this).siblings("#searchVenue").html();
-            var resultCity = $(this).siblings("#searchCity").html();
-            var resultState = $(this).siblings("#searchState").html();
-            var resultDate = $(this).siblings("#searchDate").html();
-            var resultTicket = $(this).siblings("#ticketBtn").attr("href");
 
-            console.log(resultName);
-            console.log(resultVenue);
-            console.log(resultCity);
-            console.log(resultState);
-            console.log(resultDate);
-            console.log(resultTicket);
 
-            var ticketButton = $("<button>");
-            // ticketButton.attr("id", "ticketButton");
-            // ticketButton.addClass("btn btn-secondary");
-            // ticketButton.text("Buy Here");
-            $(document).on("click", "#ticketButton", function () {
-                window.open(resultTicket);
-            })
-            console.log(ticketButton);
+        // Add each train's data into the table
 
-            // Add each train's data into the table
-            $("#results-table > tbody").append(
-                "<tr><td>" + resultName +
-                "</td><td>" + resultVenue +
-                "</td><td>" + resultCity +
-                "</td><td>" + resultState +
-                "</td><td>" + resultDate +
-                "</td><td><button class='btn btn-secondary' id='ticketButton'>Buy Here</button>" +
-                "</td></tr>");
+    };
+    $("#cards button").on("click", function () {
+        $(this.parentElement.parentElement).hide("slow");
+        var resultName = $(this).siblings("#searchName").html();
+        var resultVenue = $(this).siblings("#searchVenue").html();
+        var resultCity = $(this).siblings("#searchCity").html();
+        var resultState = $(this).siblings("#searchState").html();
+        var resultDate = $(this).siblings("#searchDate").html();
+        var resultTicket = $(this).siblings("#ticketBtn").attr("href");
+
+        console.log(resultName);
+        console.log(resultVenue);
+        console.log(resultCity);
+        console.log(resultState);
+        console.log(resultDate);
+        console.log(resultTicket);
+
+        var ticketButton = $("<button>");
+        // ticketButton.attr("id", "ticketButton");
+        // ticketButton.addClass("btn btn-secondary");
+        // ticketButton.text("Buy Here");
+        $(document).on("click", "#ticketButton", function () {
+            window.open(resultTicket);
         });
+        console.log(ticketButton);
+
+        // Add each train's data into the table
+        $("#results-table > tbody").append(
+            "<tr><td>" + resultName +
+            "</td><td>" + resultVenue +
+            "</td><td>" + resultCity +
+            "</td><td>" + resultState +
+            "</td><td>" + resultDate +
+            "</td><td><button class='btn btn-secondary' id='ticketButton'>Buy Tickets</button>" +
+            "</td></tr>");
     });
 });
