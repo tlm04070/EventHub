@@ -30,6 +30,7 @@ var emptyArray = function () {
 };
 
 $("#infoSubmit").on("click", function (event) {
+
     event.preventDefault();
     var dataRemove = database.ref().child("Search");
     dataRemove.remove();
