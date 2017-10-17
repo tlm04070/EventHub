@@ -32,11 +32,11 @@
     <form class="container-fluid">
       <div id="band-info" class="form-group" style="display: inline-block">
         <label for="exampleInputEmail1">What do you want to see?</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex; football, rock, hockey, concert">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
       <div id="locate" class="form-group" style="display: inline-block">
         <label for="exampleInputPassword1">Where do you want to see it?</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ex; Charlotte, New York, ">
+        <input type="text" class="form-control" id="exampleInputPassword1">
       </div>
       <button id="infoSubmit" class="btn btn-sm active" style="background-color: #bc2220; border-color: #bc2220; color: #ffffff"
         role="button" aria-pressed="true">Submit
@@ -50,34 +50,18 @@
 
   </div>
 
-  <table class="table table-striped table-inverse">
+  <table class="table table-striped table-inverse" id="results-table">
     <thead>
       <tr>
-        <th>Band</th>
+        <th>Name</th>
         <th>Venue</th>
+        <th>City</th>
+        <th>State</th>
         <th>Date</th>
-        <th>Time</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>jehf</td>
-      </tr>
-      <tr>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>efjh</td>
-      </tr>
-      <tr>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>erkj</td>
-      </tr>
+
     </tbody>
   </table>
 
