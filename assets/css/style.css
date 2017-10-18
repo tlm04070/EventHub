@@ -26,9 +26,6 @@ body {
     border-width: 9px;
 }
 
-.my-4 {
-    background-color: white;
-}
 
 .search-par {
     width: 30%;
@@ -47,8 +44,8 @@ label {
 }
 
 .btn-secondary {
-    background-color: #bc2220;
-    border-color: #bc2220;
+    background-color: darkred;
+    border-color: darkred;
 }
  
 .btn-secondary:hover{
@@ -58,7 +55,11 @@ label {
 
 .card {
     margin-top: 5%;
-    background-color: #bc2220;
+    background-color: darkred;
+}
+
+.card-footer {
+    color: white;
 }
 
 .table {
@@ -80,6 +81,10 @@ h5 {
     font-size: 3em;
 }
 
+#log-info {
+    margin-top: 80%;
+}
+
 .search-card {
     margin-top:2%;
     border-color: darkred;
@@ -99,36 +104,45 @@ img {
     border-width: 2px;
 }
 
+hr {
+    width: 80%;
+    background-color: white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 #searchName {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
+    color: white;
     
 }
 
 #searchVenue {
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 
 #searchCity {
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 
 #searchState {
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 
 #searchDate {
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 
-#card-result {
-    min-height: 10%;
-}
 
 #savebtn {
   background-color: black;
