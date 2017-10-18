@@ -9,8 +9,9 @@
         authKey;
 
 var provider = new firebase.auth.GoogleAuthProvider(); 
-
+provider.addScope('https://www.googleapis.com/auth/plus.login');
 function signIn()   {
+    console.log("Sign IN"); 
     firebase.auth().signInWithPopup(provider).then(function (result) {
         //this gives you a google access token. you can use it to access the google api. 
             var token = result.credential.accessToken;
