@@ -11,7 +11,37 @@ var config = {
     storageBucket: "recent-name.appspot.com",
     messagingSenderId: "126583712962"
 };
+
 firebase.initializeApp(config);
+
+var provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/plus.login');
+
+$("#logSubmit").on("click", function signIn() {
+    console.log("Sign IN");
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        //this gives you a google access token. you can use it to access the google api.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        console.log(user.displayName);
+        firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    window.location = "src='../../login.html'"; //After successful login, user will be redirected to home.html
+                }
+            })
+            .catch(function (error) {
+                //handle errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                //the email of the user's account used
+                var email = error.email;
+                // the firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+            });
+    });
+});
+
 
 var database = firebase.database();
 var nameArray = [];
