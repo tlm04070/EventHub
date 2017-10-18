@@ -28,6 +28,12 @@ function signIn()   {
             // the firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
         });
+
+firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+        window.location = 'https://www.google.com'; //After successful login, user will be redirected to home.html
+  }
+});
 };
 //     $("#login").on("click", function(event){
 //         signIn();
