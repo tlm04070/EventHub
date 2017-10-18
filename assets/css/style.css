@@ -5,8 +5,9 @@ body {
 .display-3 {
     text-align: center;
     color: white;
-    font-family: 'Permanent Marker', cursive;
-    background-color: black;
+    margin-top: 6%;
+    font-size: 8em;
+    font-family: 'Noto Serif', serif;
 }
 
 .lead {
@@ -18,9 +19,11 @@ body {
 .jumbotron {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-image: url(../images/messyroom2.jpg);
-    background-size: 100% 100%;
+    background-color: black;
     margin-bottom: 0px;
+    border-style: groove;
+    border-color: darkred;
+    border-width: 9px;
 }
 
 .my-4 {
@@ -77,6 +80,52 @@ h5 {
     font-size: 3em;
 }
 
+.search-card {
+    margin-top:2%;
+    border-color: darkred;
+    border-style: groove;
+    border-width: 5px;
+}
 
+#exampleInputEmail1 {
+    
+}
 
+img {
+    height: 100%;
+    width: 100%;
+    border-style: groove;
+    border-color: darkred;
+    border-width: 2px;
+}
 
+#searchName {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+#searchVenue {
+    font-size: 20px;
+    text-align: center;
+}
+
+#searchCity {
+    font-size: 20px;
+    text-align: center;
+}
+
+#searchState {
+    font-size: 20px;
+    text-align: center;
+}
+
+#searchDate {
+    font-size: 20px;
+    text-align: center;
+}
+
+#card-result {
+    min-height: 10%;
+}
