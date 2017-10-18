@@ -52,43 +52,53 @@ $("#infoSubmit").on("click", function (event) {
         url: queryURLBase,
         method: "GET"
     }).done(function (response) {
+        console.log(response.page.totalElements);
+        if (response.page.totalElements == 0) {
+            $("#cards").append(
+                "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='no-results-card'>" +
+                "<div class='card-block'>" +
+                "<center><h2 class='card-title' id='errorCard'>No results found</h2></center>" + "<hr>" +
+                "<h4 class='card-text'>Try searching something else</h4>" +
+                "</div>" +
+                "</div>"
+            );
+        } else {
+            console.log(response);
 
-        console.log(response);
+            var results = response;
 
-        var results = response;
-
-        for (var i = 0; i < results._embedded.events.length; i++) {
-            var eventList = results._embedded.events[i];
-            var eventName = eventList.name;
-            var eventDate = eventList.dates.start.localDate;
-            var eventLocale = eventList._embedded.venues[0].name;
-            var eventCity = eventList._embedded.venues[0].city.name;
-            var eventState = eventList._embedded.venues[0].state.name;
-            var eventTickets = eventList.url;
-
-
-            nameArray.push(results._embedded.events[i].name);
-            dateArray.push(eventDate);
-            localeArray.push(eventLocale);
-            cityArray.push(eventCity);
-            stateArray.push(eventState);
-            ticketArray.push(eventTickets);
-
-        };
-
-        database.ref().child("Search").set({
-            name: nameArray,
-            date: dateArray,
-            venue: localeArray,
-            city: cityArray,
-            state: stateArray,
-            tickets: ticketArray,
-
-        });
+            for (var i = 0; i < results._embedded.events.length; i++) {
+                var eventList = results._embedded.events[i];
+                var eventName = eventList.name;
+                var eventDate = eventList.dates.start.localDate;
+                var eventLocale = eventList._embedded.venues[0].name;
+                var eventCity = eventList._embedded.venues[0].city.name;
+                var eventState = eventList._embedded.venues[0].state.name;
+                var eventTickets = eventList.url;
 
 
+                nameArray.push(results._embedded.events[i].name);
+                dateArray.push(eventDate);
+                localeArray.push(eventLocale);
+                cityArray.push(eventCity);
+                stateArray.push(eventState);
+                ticketArray.push(eventTickets);
+
+            };
+
+            database.ref().child("Search").set({
+                name: nameArray,
+                date: dateArray,
+                venue: localeArray,
+                city: cityArray,
+                state: stateArray,
+                tickets: ticketArray,
+
+            });
+
+
+        }
     });
-
 });
 database.ref().on("child_added", function (childSnapshot) {
     counter = 0;
@@ -103,7 +113,7 @@ database.ref().on("child_added", function (childSnapshot) {
         console.log(searchTickets);
 
         $("#cards").append(
-            "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='number" + i + "'>" +
+            "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='card-result'>" +
             "<div class='card-block'>" +
             "<h2 class='card-title' id='searchName'>" + searchName + "</h2>" + "<hr>" +
             "<h3 class='card-text' id='searchVenue'>" + searchVenue + "</h3>" + "</br>" +
@@ -144,6 +154,9 @@ database.ref().on("child_added", function (childSnapshot) {
         $(document).on("click", "#ticketButton", function () {
             window.open(resultTicket);
         });
+        $(document).on("click", "#deleteButton", function () {
+            $(this.parentElement.parentElement).remove();
+        })
         console.log(ticketButton);
 
         // Add each train's data into the table
@@ -154,6 +167,7 @@ database.ref().on("child_added", function (childSnapshot) {
             "</td><td>" + resultState +
             "</td><td>" + resultDate +
             "</td><td><button class='btn btn-secondary' id='ticketButton'>Buy Tickets</button>" +
+            "</td><td><button class='fa fa - minus - square - o' aria-hidden= 'true' id='deleteButton'></button>" +
             "</td></tr>");
     });
 });
