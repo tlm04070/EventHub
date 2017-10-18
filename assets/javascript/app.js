@@ -120,7 +120,7 @@ database.ref().on("child_added", function (childSnapshot) {
             "<h4 class='card-text' id='searchCity'>" + searchCity + "</h4>, " +
             "<p class='card-text' id='searchState'>" + searchState + "</p>" + "</br>" +
             "<p class='card-text' id='searchDate'>" + searchDate + "</p>" + "</br>" +
-            "<center><button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button></center>" +
+            "<button class='btn btn-primary text-center' style='text-align: center' id='savebtn'> Save </button>" +
             "<a href= '" + searchTickets + "' id='ticketBtn'><button class='btn btn-secondary text-center' style='text-align: center'></button></a>" +
             "</div>" +
             "</div>"
