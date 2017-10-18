@@ -22,8 +22,8 @@ function signIn()   {
                 if(user) {
                  window.location = 'https://www.google.com'; //After successful login, user will be redirected to home.html
         }
-
-        }).catch(function(error) {
+    })
+        .catch(function(error) {
             //handle errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
