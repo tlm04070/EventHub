@@ -18,6 +18,10 @@ function signIn()   {
             // The signed-in user info.
             var user = result.user;    
             console.log(user.displayName);
+            firebase.auth().onAuthStateChanged(user => {
+                if(user) {
+                 window.location = 'https://www.google.com'; //After successful login, user will be redirected to home.html
+        }
 
         }).catch(function(error) {
             //handle errors here.
@@ -29,10 +33,7 @@ function signIn()   {
             var credential = error.credential;
         });
 
-firebase.auth().onAuthStateChanged(user => {
-    if(user) {
-        window.location = 'https://www.google.com'; //After successful login, user will be redirected to home.html
-  }
+
 });
 };
 //     $("#login").on("click", function(event){
