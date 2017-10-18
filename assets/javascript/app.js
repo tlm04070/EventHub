@@ -27,7 +27,7 @@ $("#logSubmit").on("click", function signIn() {
         console.log(user.displayName);
         firebase.auth().onAuthStateChanged(user => {
                 if (user) {
-                    window.location = "https://tlm04070.github.com/project-1/app.html"; //After successful login, user will be redirected to home.html
+                    window.location = "https://tlm04070.github.io/project-1/app.html"; //After successful login, user will be redirected to home.html
                 }
             })
             .catch(function (error) {
