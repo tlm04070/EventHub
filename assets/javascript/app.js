@@ -197,7 +197,7 @@ database.ref().on("child_added", function (childSnapshot) {
             "</td><td>" + resultState +
             "</td><td>" + resultDate +
             "</td><td><button class='btn btn-secondary' id='ticketButton'>Buy Tickets</button>" +
-            "</td><td><button class='fa fa - window - close' aria-hidden= 'true' id='deleteButton'></button>" +
+            "</td><td><button class='fa fa-minus-square-o' aria-hidden= 'true' id='deleteButton'></button>" +
             "</td></tr>");
     });
 });
