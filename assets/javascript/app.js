@@ -132,9 +132,10 @@ $("#infoSubmit").on("click", function (event) {
         }
     });
 });
+
 database.ref().on("child_added", function (childSnapshot) {
     counter = 0;
-    for (let i = counter; i < 8; i++) {
+    for (let i = counter; i < nameArray.length; i++) {
         console.log(childSnapshot.val().name[i]);
         var searchName = childSnapshot.val().name[i];
         var searchDate = childSnapshot.val().date[i];
@@ -142,7 +143,7 @@ database.ref().on("child_added", function (childSnapshot) {
         var searchCity = childSnapshot.val().city[i];
         var searchState = childSnapshot.val().state[i];
         var searchTickets = childSnapshot.val().tickets[i];
-        console.log(searchTickets);
+
 
         $("#cards").append(
             "<div class='card' style='width: 20%; margin-left: 2%; margin-right: 2%; display: inline-block;' id='card-result'>" +
@@ -157,6 +158,11 @@ database.ref().on("child_added", function (childSnapshot) {
             "</div>" +
             "</div>"
         );
+        console.log(ticketArray);
+        console.log($("#cards h2")[i]);
+        if ($("#cards h2")[i].val == undefined) {
+
+        }
 
         // Add each train's data into the table
 
