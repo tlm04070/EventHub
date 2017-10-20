@@ -26,14 +26,12 @@ body {
     border-width: 9px;
 }
 
-
 .search-par {
     width: 30%;
     margin-top: 5%;
     margin-bottom: 5%;
     border-radius: none;
 }
-
 
 .form-group {
     text-align: center;
@@ -47,8 +45,8 @@ label {
     background-color: darkred;
     border-color: darkred;
 }
- 
-.btn-secondary:hover{
+
+.btn-secondary:hover {
     background-color: #5f1312;
     border-color: #5f1312;
 }
@@ -63,8 +61,8 @@ label {
 }
 
 .table {
-   margin-top: 5%;
-    margin-bottom: 5%; 
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #info {
@@ -86,15 +84,13 @@ h5 {
 }
 
 .search-card {
-    margin-top:2%;
+    margin-top: 2%;
     border-color: darkred;
     border-style: groove;
     border-width: 5px;
 }
 
-#exampleInputEmail1 {
-    
-}
+#exampleInputEmail1 {}
 
 img {
     height: 100%;
@@ -116,7 +112,6 @@ hr {
     font-weight: bold;
     text-align: center;
     color: white;
-    
 }
 
 #searchVenue {
@@ -143,8 +138,25 @@ hr {
     color: white;
 }
 
-
 #savebtn {
-  background-color: black;
-    border-color: black; 
+    background-color: black;
+    border-color: black;
+}
+
+#map {
+    margin-top: 5%;
+}
+
+#mapButton,
+#deleteButton {
+    background-color: darkred;
+    border-color: darkred;
+    color: white;
+}
+
+;
+#mapButton:hover,
+#deleteButton:hover {
+    background-color: #5f1312;
+    border-color: #5f1312;
 }

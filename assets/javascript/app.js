@@ -1,7 +1,9 @@
 $(document).ready(function () {
     var dataRemove = database.ref().child("Search");
     dataRemove.remove();
+
 });
+
 
 var config = {
     apiKey: "AIzaSyAqvI_ClOC4GsGp582OWw7d7PzFi_pT8sQ",
@@ -156,8 +158,6 @@ database.ref().on("child_added", function (childSnapshot) {
             "</div>"
         );
 
-
-
         // Add each train's data into the table
 
     };
@@ -169,25 +169,27 @@ database.ref().on("child_added", function (childSnapshot) {
         var resultState = $(this).siblings("#searchState").html();
         var resultDate = $(this).siblings("#searchDate").html();
         var resultTicket = $(this).siblings("#ticketBtn").attr("href");
-
-        console.log(resultName);
-        console.log(resultVenue);
-        console.log(resultCity);
-        console.log(resultState);
-        console.log(resultDate);
-        console.log(resultTicket);
-
         var ticketButton = $("<button>");
-        // ticketButton.attr("id", "ticketButton");
-        // ticketButton.addClass("btn btn-secondary");
-        // ticketButton.text("Buy Here");
+
         $(document).on("click", "#ticketButton", function () {
             window.open(resultTicket);
         });
         $(document).on("click", "#deleteButton", function () {
+            $("#map").empty();
             $(this.parentElement.parentElement).remove();
-        })
-        console.log(ticketButton);
+        });
+        $(document).on("click", "#mapButton", function iframe() {
+            $("#map").empty();
+            console.log("clicked");
+            var iframe = $("<iframe width = '100%'" +
+                "height = '350'" +
+                "frameborder = '0'" +
+                "style = 'border:0'" +
+                "src = 'https://www.google.com/maps/embed/v1/place?q=" + resultVenue + "%20" + resultCity + "&key=AIzaSyA-7z8l4lKh-zR9LvQqO-43vRrF8gPNtpc'" +
+                "allowfullscreen></iframe>");
+            $("#map").append(iframe);
+
+        });
 
         // Add each train's data into the table
         $("#results-table > tbody").append(
@@ -197,7 +199,9 @@ database.ref().on("child_added", function (childSnapshot) {
             "</td><td>" + resultState +
             "</td><td>" + resultDate +
             "</td><td><button class='btn btn-secondary' id='ticketButton'>Buy Tickets</button>" +
-            "</td><td><button class='fa fa-minus-square-o' aria-hidden= 'true' id='deleteButton'></button>" +
+            "</td><td><button class = 'fa fa-map-o fa-lg' aria - hiden = 'true' id = 'mapButton'></button>" +
+            "</td><td><button class='fa fa-minus-square-o fa-lg' aria-hidden= 'true' id='deleteButton'></button>" +
             "</td></tr>");
     });
+
 });

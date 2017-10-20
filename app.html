@@ -12,8 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
   <script src="https://use.fontawesome.com/a043487d1c.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASLk-sPSznv-BmYAagFfwXhEZJh2vne4w&callback=initMap"
-            type="text/javascript"></script>
+
 
 
 
@@ -21,6 +20,7 @@
 </head>
 
 <body>
+
 
   <div class="jumbotron">
     <div class="row">
@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+
 
 
 
@@ -55,9 +56,11 @@
   </div>
 
 
-  <div id="cards">
 
-  </div>
+  <div id="cards"></div>
+
+  <div class="container" id="map"></div>
+
 
   <table class="table table-striped table-inverse" id="results-table">
     <thead>
@@ -67,6 +70,9 @@
         <th>City</th>
         <th>State</th>
         <th>Date</th>
+        <th>Tickets</th>
+        <th>Map/Directions</th>
+        <th>Remove</th>
       </tr>
     </thead>
     <tbody>
@@ -97,6 +103,7 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
     crossorigin="anonymous"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-7z8l4lKh-zR9LvQqO-43vRrF8gPNtpc"></script>
   <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
