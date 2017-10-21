@@ -14,6 +14,8 @@ var config = {
     messagingSenderId: "126583712962"
 };
 
+
+
 firebase.initializeApp(config);
 
 var provider = new firebase.auth.GoogleAuthProvider();
