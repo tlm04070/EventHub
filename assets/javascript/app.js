@@ -198,6 +198,23 @@ database.ref().on("child_added", function (childSnapshot) {
             $("#map").append(iframe);
 
         });
+        database.ref().child("Saved").set({
+            name: resultName,
+            venue: resultVenue,
+            city: resultCity,
+            state: resultState,
+            date: resultDate,
+
+
+        });
+
+        database.ref().child("Saved").push({
+            name: resultName,
+            venue: resultVenue,
+            city: resultCity,
+            state: resultState,
+            date: resultDate,
+        });
 
         // Add each train's data into the table
         $("#results-table > tbody").append(
@@ -210,6 +227,8 @@ database.ref().on("child_added", function (childSnapshot) {
             "</td><td><button class = 'fa fa-map-o fa-lg' aria - hiden = 'true' id = 'mapButton'></button>" +
             "</td><td><button class='fa fa-minus-square-o fa-lg' aria-hidden= 'true' id='deleteButton'></button>" +
             "</td></tr>");
+
+
     });
 
 });
